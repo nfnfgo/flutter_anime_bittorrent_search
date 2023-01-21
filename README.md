@@ -1,39 +1,32 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+A more convenient way to search anime/manga torrent magnet in Flutter/Dart
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+## Quick Start
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+It's quite easy to start a search by using this package
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+```Dart
+import 'package:flutter_anime_bittorrent_search/flutter_anime_bittorrent_search.dart';
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+void main() async {
+  try {
+    TorrentSearchResult result = await searchDMHY(animeName: 'Bocchi the rock');
+    print('SearchTimeStamp: ${result.searchTime}');
+    for (TorrentSearchResultItem item in result.results) {
+      print(item.title ?? 'No title');
+      print(item.magnet ?? 'No magnet');
+    }
+  } on TorrentSearchInputException {
+    print('Invalid Input');
+  } catch (e) {
+    print(e);
+  }
+}
 ```
 
-## Additional information
+For more info, you can read the Full API Reference
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+# Other Info
+
+## SourcePlatform
+
+Until now, this package only support searching magnet on DMHY, we will consider adding more availble source platform in the future.

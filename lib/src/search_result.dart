@@ -48,6 +48,9 @@ class TorrentSearchResultItem {
   String? description;
 
   /// The magnet link string, which is start by 'magnet:?xt=urn:btih:'
+  ///
+  /// **Notice**: This field could be null since some result has no magnet but
+  /// only Bittorrent seed file
   String? magnet;
 
   /// The source url of this search result
@@ -83,7 +86,7 @@ class TorrentSearchResultItem {
       );
       magnet = magnet?.replaceAll('&amp;', '&');
     } catch (e) {}
-    print(title);
-    print(magnet?.substring(0, 70));
+    // print(title);
+    // print(magnet?.substring(0, 70));
   }
 }

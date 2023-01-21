@@ -8,7 +8,7 @@ import 'exceptions.dart';
 import 'search_result.dart';
 import 'html_tools.dart';
 
-Future<TorrentSearchResult?> searchDMHY({
+Future<TorrentSearchResult> searchDMHY({
   /// The name of the anime that you want to search
   required String animeName,
 }) async {
